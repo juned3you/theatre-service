@@ -88,4 +88,3 @@ CREATE TABLE bookings_seat (
     FOREIGN KEY (booking_id) REFERENCES bookings(id),
     FOREIGN KEY (seat_id) REFERENCES seats(id)
 );
-

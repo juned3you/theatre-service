@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -167,7 +169,7 @@ public class BookingServiceImpl implements BookingService {
      * @throws InvalidDataException
      * @throws SeatReservedException
      */
-    @Transactional
+    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     private BookingDto saveBooking(BookingCriteria bookingCriteria) throws InvalidDataException, SeatReservedException {
         final Screen screen = screenRepository.findById(bookingCriteria.getScreenId()).get();
         final Timings timings = timingsRepository.findById(bookingCriteria.getTimingsId()).get();
