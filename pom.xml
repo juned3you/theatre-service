@@ -11,7 +11,6 @@
 	<groupId>com.xyz</groupId>
 	<artifactId>theatre-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 	<name>theatre-service</name>
 	<description>XYZ organization theatre service</description>
 	<properties>
